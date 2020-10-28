@@ -1,0 +1,31 @@
+.container {
+  /*ширина контейнера чистая 1140px*/
+  max-width: 1170px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.assistant__cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-left: -25px;
+}
+
+.assistant__card {
+  background-color: #e5e5e5;
+  padding: 50px 25px;
+  margin-left: 25px;
+  margin-bottom: 25px;
+  flex-basis: calc(50% - 25px);
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.assistant__card:hover {
+  box-shadow: 0 0 5px 5px rgba(170, 170, 170, 0.7);
+  background-color: white;
+}
+
+
