@@ -81,13 +81,12 @@ let questions = [
 ]
 
 
-// let questions2 = [
-//   new Question([{title: "Нежилое помещение", category: '9'}]),
-//   new Question([{title: "Товарный знак", category: '7'}, {title: "Изобретение", category: '8'}, {title: "Бренд", category: '9'}]),
-// ]
+let questions2 = [
+  new Question([{title: "Нежилое помещение", category: '9'}]),
+  new Question([{title: "Товарный знак", category: '7'}, {title: "Изобретение", category: '8'}, {title: "Бренд", category: '9'}]),
+]
 
 // Create quiz
 new Quiz(questions)
-
-// new Quiz(questions2)
+new Quiz(questions2)
 
