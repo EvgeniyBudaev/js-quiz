@@ -1,15 +1,12 @@
 function generateId(questions) {
-
   questions.forEach(q => {
     q.id = Math.random().toString(36).substring(7) // generate uniq id for questions
     if (q.children) generateId(q.children)
-  });
-  
+  }); 
 }
 
 class Quiz {
   constructor(questions) {
-    console.log('questions', questions)
     this.questions = questions
     generateId(this.questions)
     this.currentQuestion = null;
@@ -24,8 +21,7 @@ class Quiz {
     } else {
       alert('finish, go to next page');
     }
-    
-    
+      
   }
 
   findQuestion(id,questions) {
@@ -39,30 +35,21 @@ class Quiz {
 
   display() {
     const questions = this.currentQuestion && this.currentQuestion.children || this.questions;
+    console.log('questions', questions)
     const assistantCards = document.querySelector('.assistant__cards')
-    let arrayNumbers = []
-    let number
-    for (let i = 0; i < questions.length; i++) {
-      number = questions[i].category
-      arrayNumbers.push(number)
-      
+
+    for (let i = 0; i < questions.length; i++) {  
       assistantCards.insertAdjacentHTML('beforeend', card.render(questions[i]))
     }
 
     assistantCards.querySelectorAll("a").forEach(el => el.addEventListener('click', event => {
-      const category = event.target.dataset.category
       const id = event.target.dataset.id
-      console.log('category', category);
-      console.log('arrayNumbers', arrayNumbers);
-
       assistantCards.innerHTML = ''
       this.quess(id)
-
       event.stopPropagation()
 
     }, true))
   }
-
 }
 
 
