@@ -9,15 +9,14 @@ function generateId(questions) {
 
 class Quiz {
   constructor(questions) {
+    console.log('questions', questions)
     this.questions = questions
     generateId(this.questions)
     this.currentQuestion = null;
-    //this.questionIndex = 0
     this.display()
   }
 
   quess(id) {
-    //this.questionIndex++
     this.currentQuestion = this.currentQuestion ? this.findQuestion(id, this.currentQuestion.children || []) : this.questions.find(q => q.id === id)
     
     if (this.currentQuestion && this.currentQuestion.children) {
@@ -38,22 +37,13 @@ class Quiz {
     }
   }
 
-  // getQuestionIndex() {
-  //   console.log('this.questionIndex', this.questionIndex)
-  //   return this.questions[this.questionIndex]
-  // }
-
   display() {
-    // console.log('this.getQuestionIndex()', this.getQuestionIndex())
-    // let choices = this.getQuestionIndex().choices
-    // console.log('choices', choices);
     const questions = this.currentQuestion && this.currentQuestion.children || this.questions;
     const assistantCards = document.querySelector('.assistant__cards')
     let arrayNumbers = []
     let number
     for (let i = 0; i < questions.length; i++) {
       number = questions[i].category
-      console.log('number', number);
       arrayNumbers.push(number)
       
       assistantCards.insertAdjacentHTML('beforeend', card.render(questions[i]))
@@ -65,12 +55,9 @@ class Quiz {
       console.log('category', category);
       console.log('arrayNumbers', arrayNumbers);
 
-      // for (let k = 0; k < arrayNumbers.length; k++) {      
-      //   if (category === arrayNumbers[k]) {
       assistantCards.innerHTML = ''
       this.quess(id)
-      //   }
-      // };
+
       event.stopPropagation()
 
     }, true))
@@ -89,9 +76,8 @@ class Question {
 
 
 class Card {
-  constructor(choice, category) {
+  constructor(choice) {
     this.choice = choice
-    this.category = category
   }
 
   render(choice) {
