@@ -2,18 +2,23 @@ class Quiz {
   constructor(questions) {
 
     this.$progressbar = document.getElementById("progressbar")
-    this.progressbarMaxLevel = 0
+    this.progressbarMaxLevel = 0 // for generate card levels
     this.progressbarLevel = 1    
     
     this.questions = questions
     this.generateId(this.questions)
-    this.currentQuestion = null;    
-    
+    this.progressbarMaxLevel = this.calcMaxProgressbarLevel(this.questions).sort().reverse()[0].length // for a global level
+    this.currentQuestion = null
+
     this.quizQuestionTitle = document.querySelector('[data-quiz-question=""]')
     this.display()
 
     this.arrayLinks = []
     this.links = document.querySelector('[data-quiz-links=""]')
+  }
+
+  calcMaxProgressbarLevel(questions) {
+    return questions.map(q => q.children ? [0].concat(this.calcMaxProgressbarLevel(q.children)) : [0])
   }
 
   generateId(questions) {
@@ -40,7 +45,7 @@ class Quiz {
       this.showLinks(this.currentQuestion)      
     } else {
       alert('finish, go to next page, last question id is' + id);
-      this.currentQuestion = lcq  // сделано чтобы работала навигация после окончания вопросов. в реальной версии можно убрать
+      this.currentQuestion = lcq  // сделано чтобы работала навигация после окончания вопросов. в реальной версии можно убрать      
     }
   }
 
@@ -55,8 +60,7 @@ class Quiz {
       console.log(this.currentQuestion)
       // if (e.target.dataset.id == this.currentQuestion.id) return
       this.currentQuestion = this.findParent(e.target.dataset.id,this.questions) //this.findQuestion(e.target.dataset.id,this.questions)
-      if (this.currentQuestion) {
-        this.choiceQuizTitleQuestion(this.currentQuestion)
+      if (this.currentQuestion) {        
         this.progressbarLevel = this.currentQuestion.progressbarLevel
         this.display()
         this.arrayLinks = [this.currentQuestion]
@@ -65,6 +69,7 @@ class Quiz {
         this.arrayLinks = []
         this.progressbarLevel = 1
       }
+      this.choiceQuizTitleQuestion({})
       this.display()
       this.showLinks(this.currentQuestion)
     }))
@@ -72,7 +77,7 @@ class Quiz {
   }
 
   choiceQuizTitleQuestion({quizQuestionTitle}) {
-    quizQuestionTitle ? this.quizQuestionTitle.innerHTML = quizQuestionTitle : this.quizQuestionTitle.innerHTML = ''
+    quizQuestionTitle ? this.quizQuestionTitle.innerHTML = quizQuestionTitle : this.quizQuestionTitle.innerHTML = 'что у вас?'
   }
 
   findParent(id,questions) {
@@ -164,6 +169,12 @@ let questions = [
     ]}),
     new Question({title: "Земельный участок 2"}),
     new Question({title: "Земельный участок 2"}),
+  ]}),
+  new Question({quizQuestionTitle: "Какое Вы хотите нежилое помещение?", title: "Нежилое помещение", children: [
+    new Question({title: "Право"})
+  ]}),
+  new Question({quizQuestionTitle: "Какое Вы хотите нежилое помещение?", title: "Нежилое помещение", children: [
+    new Question({title: "Право"})
   ]}),
   new Question({quizQuestionTitle: "Какое Вы хотите нежилое помещение?", title: "Нежилое помещение", children: [
     new Question({title: "Право"})
