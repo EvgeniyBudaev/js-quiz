@@ -10,8 +10,21 @@
 
   <div class="assistant">
     <div class="container">
+      <div style="width:100%;height:60px">
+        <div id="progressbar" style="width: 100%; height: 100%;background-color:#992ff2;"></div>
+      </div>
       <div class="assistant__inner">
-        <div class="assistant__cards" id="quiz"></div>
+
+
+        <h2 data-quiz-question="">
+          <span>что </span>у вас?
+        </h2>
+
+        <div class="quiz-question__links" data-quiz-links=""></div>
+
+        <div class="assistant__cards" id="quiz" data-quiz=""></div>
+
+
       </div>
     </div>
   </div>

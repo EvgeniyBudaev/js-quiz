@@ -1,3 +1,21 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: inherit;
+  display: inline-block;
+  cursor: pointer;
+}
+
 .container {
   /*ширина контейнера чистая 1140px*/
   max-width: 1170px;
@@ -26,6 +44,27 @@
 .assistant__card:hover {
   box-shadow: 0 0 5px 5px rgba(170, 170, 170, 0.7);
   background-color: white;
+}
+
+.quiz-question__links {
+  margin-bottom: 25px;
+}
+
+.quiz-question__links a {
+  font-size: 16px;
+  text-transform: none;
+  color: rgba(6, 53, 122, 1);
+  border-bottom: 1px dashed rgba(6, 53, 122, 1);
+  transition: all .3s;
+}
+
+.quiz-question__links a + a {
+  margin-left: 25px;
+}
+
+.quiz-question__links a:hover {
+  color: rgba(179, 8, 56, 1);
+  border-bottom: 1px dashed rgba(179, 8, 56, 1);
 }
 
 
