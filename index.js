@@ -65,11 +65,13 @@ class Quiz {
         this.display()
         this.arrayLinks = [this.currentQuestion]
         this.showLinks(this.currentQuestion)
+        this.choiceQuizTitleQuestion(this.currentQuestion)
       } else {
         this.arrayLinks = []
         this.progressbarLevel = 1
+        this.choiceQuizTitleQuestion({})
       }
-      this.choiceQuizTitleQuestion({})
+      
       this.display()
       this.showLinks(this.currentQuestion)
     }))
