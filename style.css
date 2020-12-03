@@ -1,70 +1,121 @@
-html {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-a {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: inherit;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.container {
-  /*ширина контейнера чистая 1140px*/
-  max-width: 1170px;
-  width: 100%;
-  padding: 0 15px;
-  margin: 0 auto;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap");
 .assistant__cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin-left: -25px;
 }
 
 .assistant__card {
-  background-color: #e5e5e5;
-  padding: 50px 25px;
+  background-color: #ededed;
+  padding: 25px;
   margin-left: 25px;
   margin-bottom: 25px;
-  flex-basis: calc(50% - 25px);
+  -ms-flex-preferred-size: calc(50% - 25px);
+      flex-basis: calc(50% - 25px);
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
   cursor: pointer;
+  border: none;
+}
+
+.assistant__card-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.assistant__card-content {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.assistant__card-footer {
+  min-height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .assistant__card:hover {
-  box-shadow: 0 0 5px 5px rgba(170, 170, 170, 0.7);
+  -webkit-box-shadow: 0 0 5px 5px rgba(170, 170, 170, 0.7);
+          box-shadow: 0 0 5px 5px rgba(170, 170, 170, 0.7);
   background-color: white;
 }
 
 .quiz-question__links {
+  margin-top: 25px;
   margin-bottom: 25px;
 }
 
-.quiz-question__links a {
+.quiz-question__links span {
   font-size: 16px;
   text-transform: none;
-  color: rgba(6, 53, 122, 1);
-  border-bottom: 1px dashed rgba(6, 53, 122, 1);
+  color: #06357a;
+  border-bottom: 1px dashed #06357a;
+  -webkit-transition: all .3s;
   transition: all .3s;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  cursor: pointer;
 }
 
-.quiz-question__links a + a {
+.quiz-question__links span + span {
   margin-left: 25px;
 }
 
-.quiz-question__links a:hover {
-  color: rgba(179, 8, 56, 1);
-  border-bottom: 1px dashed rgba(179, 8, 56, 1);
+.quiz-question__links span:hover {
+  color: #b30838;
+  border-bottom: 1px dashed #b30838;
 }
 
+.assistantBlockForm__field textarea {
+  width: 100%;
+  border: 1px solid #999999;
+  resize: none;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 300;
+  padding: 20px;
+  outline: transparent;
+}
 
+.assistantBlockForm__btn {
+  margin-top: 25px;
+}
+
+.assistantBlockForm .form-group {
+  margin-top: 25px;
+}
+
+.assistantBlockForm__form-helper {
+  position: relative;
+}
+
+.assistant__form {
+  display: none;
+}
+
+.quiz.show .assistant__form {
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */

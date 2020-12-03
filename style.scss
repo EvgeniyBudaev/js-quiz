@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800&display=swap');
+
+// start assistant
+.assistant {
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-left: -25px;
+  }
+  &__card {
+    background-color: rgba(237, 237, 237, 1);
+    padding: 25px;
+    margin-left: 25px;
+    margin-bottom: 25px;
+    flex-basis: calc(50% - 25px);
+    transition: all 0.5s;
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+    border: none;
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+    &-content {
+      flex-direction: column;
+    }
+    &-footer {
+      min-height: 50px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end
+    }
+  }
+  &__card:hover {
+    box-shadow: 0 0 5px 5px rgba(170, 170, 170, 0.7);
+    background-color: white;
+  }
+}
+// end assistant
+
+// start quiz
+.quiz-question__links {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  & span {
+    font-size: 16px;
+    text-transform: none;
+    color: rgba(6, 53, 122, 1);
+    border-bottom: 1px dashed rgba(6, 53, 122, 1);
+    transition: all .3s;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+  }
+  & span + span {
+    margin-left: 25px;
+  }
+  & span:hover {
+    color: rgba(179, 8, 56, 1);
+    border-bottom: 1px dashed rgba(179, 8, 56, 1);
+  }
+}
+// end quiz
+
+
+// start Форма
+.assistantBlockForm {
+  &__field textarea {
+    width: 100%;
+    border: 1px solid #999999;
+    resize: none;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 300;
+    padding: 20px;
+    outline: transparent;
+  }
+  &__btn {
+    margin-top: 25px;
+  }
+  & .form-group {
+    margin-top: 25px;
+  }
+  &__form-helper {
+    position: relative;
+  }
+}
+
+.assistant__form {
+  display: none;
+}
+.quiz.show .assistant__form {
+  display: block;
+}
+// end Форма
