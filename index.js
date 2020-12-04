@@ -74,8 +74,17 @@ class Quiz {
             if (this.currentQuestion) {
                 this.progressbarLevel = this.currentQuestion.progressbarLevel
                 this.display()
-                this.arrayLinks = [this.currentQuestion]
-                this.showLinks(this.currentQuestion)
+                const parent = this.findParent(this.currentQuestion.id,this.questions)
+                if (parent) {
+                    const pparent = this.findParent(parent.id,this.questions)
+                    if (pparent) {
+                        this.arrayLinks = [pparent,parent,this.currentQuestion]
+                    } else {
+                        this.arrayLinks = [parent,this.currentQuestion]
+                    }
+                } else {
+                    this.arrayLinks = [this.currentQuestion]
+                }
                 this.choiceQuizTitleQuestion(this.currentQuestion)
             } else {
                 this.arrayLinks = []
@@ -96,16 +105,38 @@ class Quiz {
 
     findParent(id,questions) {
 
+        // console.log(id)
+
+        // console.log(questions)
+
         for (let i = 0; i < questions.length; i++) {
 
             const q = questions[i]
-            const child = q.children.find(q => q.id == id)
-            if (child) {
-                return q
-            } else {
-                this.findParent(id,q)
-            }
+            if (q.children) {
+                const child = q.children.find(q => q.id == id)
+                
+                if (child) {
+                    return q
+                } else {
+                    return this.findParent(id,q.children)
+                }
+            } else return null
+        }
 
+    }
+
+    findAllParents(id, questions) { // return array of Questions
+
+        const el = this.findParent(id, questions)
+        if (el) {
+            const p = this.findParent(el.id, questions)
+            if (p) {
+                return [...Array.from(p)]
+            } else {
+                return [...Array.from(el)]
+            }
+        } else {
+            return [...Array.from(el)]
         }
 
     }
