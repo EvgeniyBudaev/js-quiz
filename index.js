@@ -94,20 +94,20 @@ class Quiz {
     }
 
     findParent(id,questions) {
+        let p = null
+        let q = null
+        let cQ = []
         for (let i = 0; i < questions.length; i++) {
-
-            const q = questions[i]
+            q = questions[i]
             if (q.children) {
-                const child = q.children.find(q => q.id == id)
-                
-                if (child) {
-                    return q
-                } else {
-                    return this.findParent(id,q.children)
-                }
-            } else return null
+                p = q.children.find(q => q.id === id)
+                if (p) break
+                cQ = cQ.concat(q.children)
+            }
         }
-
+        if (p) return q
+        else if (cQ.length) return this.findParent(id, cQ)
+        else return null
     }
 
     findAllParents(id, questions) { // return array of Questions
