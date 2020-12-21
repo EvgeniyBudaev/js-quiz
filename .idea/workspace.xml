@@ -39,7 +39,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../atlant-rating" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -57,7 +57,8 @@
       <workItem from="1605164965452" duration="3571000" />
       <workItem from="1606730989724" duration="1289000" />
       <workItem from="1607004190299" duration="2812000" />
-      <workItem from="1607063498128" duration="3084000" />
+      <workItem from="1607063498128" duration="4052000" />
+      <workItem from="1608544195859" duration="325000" />
     </task>
     <servers />
   </component>
@@ -82,9 +83,9 @@
     </state>
     <state x="-1227" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1607006568658" />
     <state x="693" y="258" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607084032093" />
-    <state x="747" y="287" key="FileChooserDialogImpl" timestamp="1607063792011">
+    <state x="747" y="287" key="FileChooserDialogImpl" timestamp="1607087881530">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="747" y="287" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607063792011" />
+    <state x="747" y="287" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1607087881530" />
   </component>
 </project>
